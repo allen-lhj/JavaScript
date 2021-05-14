@@ -1,0 +1,78 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-05-11 22:47:24
+ * @LastEditTime: 2021-05-12 00:32:29
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>if and switch case</title>
+</head>
+<body>
+  <script>
+    var date = window.prompt('输入星期一到星期日');
+    var done = window.prompt('输入上午/下午');
+    if (date === '星期一')  {
+      switch (done) {
+        case '上午':
+          document.write('星期一上午的安排： 和朋友吃饭')
+          break;
+        case '下午':
+          document.write('星期一下午的安排： 和朋友喝酒')
+      }
+    } else if (date === '星期二') {
+      switch (done) {
+        case '上午':
+          document.write('星期二上午的安排： 和朋友理发')
+          break;
+        case '下午':
+          document.write('星期二下午的安排： 和朋友小酌')
+      }
+    } else if (date === '星期三') {
+      switch (done) {
+        case '上午':
+          document.write('星期三上午的安排： 和朋友洗脚')
+          break;
+        case '下午':
+          document.write('星期三下午的安排： 和朋友按摩')
+      }
+    } else if (date === '星期四') {
+      switch (done) {
+        case '上午':
+          document.write('星期四上午的安排： 和朋友骑车')
+          break;
+        case '下午':
+          document.write('星期四下午的安排： 和朋友泡澡')
+      }
+    }else if (date === '星期五') {
+      switch (done) {
+        case '上午':
+          document.write('星期五上午的安排： 和朋友喝咖啡')
+          break;
+        case '下午':
+          document.write('星期五下午的安排： 和朋友赛车')
+      }
+    }else if (date === '星期六') {
+      switch (done) {
+        case '上午':
+          document.write('星期六上午的安排： 和朋友蹦迪')
+          break;
+        case '下午':
+          document.write('星期六下午的安排： 和朋友赛马')
+      }
+    }else if (date === '星期日') {
+      switch (done) {
+        case '上午':
+          document.write('星期日上午的安排： 和朋友写代码')
+          break;
+        case '下午':
+          document.write('星期六下午的安排： 和朋友喝咖啡')
+      }
+    } else {
+      alert('请输入星期')
+    }
+  </script>
+</body>
+</html>
