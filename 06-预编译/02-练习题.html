@@ -1,0 +1,34 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-05-16 22:08:56
+ * @LastEditTime: 2021-05-16 22:27:36
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var a = false + 1;
+    // console.log(a);
+
+    // typeof(a) -> 'undefined' -> true
+    // -true -> -1
+    // +undefined -> NaN
+    if (typeof(a) && (-true) + (+undefined) + '') {
+      console.log('通过了')
+    } else {
+      console.log('没通过')
+    }
+    console.log(typeof(a) && (-true)) // 逻辑与从左向右，遇到真值，继续向右，遇到假值或者一直到最后（就返回这个值或者最好这个值）  -1
+    // -1 + NaN -> NaN
+    // NaN + ''-> 'NaN'
+
+    console.log(!!' ' + !!'' - !!false || '未通过') // 1
+    // 第一项不是空字符串，为真
+  </script>
+</body>
+</html>

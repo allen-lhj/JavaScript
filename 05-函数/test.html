@@ -1,0 +1,54 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-05-16 14:39:47
+ * @LastEditTime: 2021-05-16 15:11:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  /**
+   * @description: 写一个函数，计算n的阶乘，不能使用for循环
+   * @param {*}
+   * @return {*}
+   */  
+  function fact(n) {
+    // 函数出口，当递归到n = 1时，return 1；
+    if (n === 1) {
+      return 1
+    }
+    return n * fact(n - 1)
+  }
+  // 并不是 当n-1减到等于1的时候函数只会返回1，
+  /**
+   * 我们分析函数运行逻辑
+   * 当n = 3时，
+   * fact(3) = 3 * fact(2)
+   * fact(2) = 2 * fact(1)
+   * 函数一直没有出口return，当n = 1时，fact(1) == 1;
+   * fact(2) = 2*1
+   * fact(3) = 3 * 2
+   * 这样递归计算出结果
+  */
+ /**
+   * @description: 同理计算斐波那契数列
+   * @param {*}
+   * @return {*}
+   */
+  function fb(n) {
+    if (n <= 0) {
+      return 0
+    }
+    if (n <= 2) {
+      n = 1
+    }
+    return fb(n - 1) + fb(n - 2)
+  }
+  </script>
+</body>
+</html>

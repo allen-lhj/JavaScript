@@ -1,7 +1,7 @@
 <!--
  * @Autor: lhj
  * @Date: 2021-05-13 22:31:15
- * @LastEditTime: 2021-05-13 23:37:49
+ * @LastEditTime: 2021-05-16 14:30:42
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +59,8 @@
       console.log(a)
       console.log(b)
     }
-    test6(undefined, 2)
+    test6(undefined, 2); // 1 2
+    // es5给参数添加默认值
     // 没给参数，arguments就为假，取后面的值
     function test7(a, b) {
       var a = arguments[0] || 1;
