@@ -1,7 +1,7 @@
 <!--
  * @Autor: lhj
  * @Date: 2021-05-16 15:38:46
- * @LastEditTime: 2021-05-16 22:52:59
+ * @LastEditTime: 2021-05-17 10:05:18
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -64,11 +64,11 @@
 
 
     // GO global object 全局上下文
-    // var a = 1;
-    // function a() {
-    //   console.log(2)
-    // }
-    // console.log(a) // 1
+    var a = 1;
+    function a() {
+      console.log(2)
+    }
+    console.log(a) // 1
 
     // GO = {
     //   a: undefined -> function a() {}
@@ -173,32 +173,32 @@
     // console.log(test()) // function a() {}
 
 
-    // function test() {
-    //   a = 1;
-    //   function a() {}
-    //   var a = 2;
-    //   return a;
-    // }
-    // console.log(test()) // 2
+    function test() {
+      a = 1;
+      function a() {}
+      var a = 2;
+      return a;
+    }
+    console.log(test()) // 2
 
     
-    // a = 1;
-    // function test(e) {
-    //   function e(){}
-    //   arguments[0] = 2;
-    //   console.log(e);
-    //   if (a) {
-    //     var b = 3;
-    //   }
-    //   var c;
-    //   a = 4;
-    //   var a;
-    //   console.log(b);
-    //   f = 5;
-    //   console.log(c);
-    //   console.log(a);
-    //   var a;
-    // }
+    a = 1;
+    function test(e) {
+      function e(){}
+      arguments[0] = 2;
+      console.log(e);
+      if (a) {
+        var b = 3;
+      }
+      var c;
+      a = 4;
+      var a;
+      console.log(b);
+      f = 5;
+      console.log(c);
+      console.log(a);
+      var a;
+    }
     // test(1); 2, undefined, undefined , 4
 function a() {
   var b = 3
