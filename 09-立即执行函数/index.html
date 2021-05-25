@@ -1,0 +1,54 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-05-24 21:31:49
+ * @LastEditTime: 2021-05-24 23:50:16
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function add(a, b) {
+      return a + b;
+    }
+    add(1, 3)
+    // 立即执行函数，执行完以后立即释放
+    // 立即执行函数，也叫初始化函数
+    // IIFE--immediately-invoked function
+    // exporession
+    // 由于js中用()包裹起来就会被转换为表达式，所以
+    function test() {
+
+    }
+    test()
+    //声明函数test，在执行与下面的直接用括号包起来，在加一个括号是一样的效果，不过立即执行会变为匿名函数过后会被释放，也就不需要写函数名
+    (function() {
+
+    })();
+    //那么函数前面加上一个符号使它变成表达式，也就也可以运行
+    +function test() {
+      console.log(1)
+    }()
+    // w3c建议
+    (function(a, b) {
+      console.log(a + b)
+    }(1, 3));
+    // 我们希望立即执行函数达到三点要求
+    // 1.执行完自动销毁
+    // 2.可以传参数
+    // 3。拿到函数执行完的值
+    var num = (function(a, b) {
+      return a + b;
+    }());
+
+    var num = (2 - 1, 6 + 5, 8 + 2)
+    console.log(num) // 10
+
+    
+  </script>
+</body>
+</html>

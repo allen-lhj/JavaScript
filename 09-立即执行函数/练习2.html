@@ -1,0 +1,34 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-05-25 00:04:56
+ * @LastEditTime: 2021-05-25 17:46:00
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <script>
+    // 使用立即函数，实现点击每一个li输出它的索引
+    var lio = document.querySelectorAll('li');
+    console.log(lio)
+    for(var i = 0; i < lio.length; i++) {
+      (function(j) {
+        lio[j].onclick = function() {
+          console.log(j)
+        }
+      })(i)
+    }
+  </script>
+</body>
+</html>

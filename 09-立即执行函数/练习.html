@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function test() {
+      var arr = [];
+      for(var i = 0; i < 10; i++) {
+        arr[i] = function() {
+          document.write(i + ' ');
+        }
+      }
+      return arr;
+    }
+
+    var myArr = test();
+    for(var j = 0; j < 10; j++) {
+      myArr[j]()
+    }
+    // 打印10个10， i在全局声明，循环十次，当我们return arr时，形成了10个闭包
+    // 那么当下面访问arr时，此时test()的AO中i是10，
+    function test() {
+      var arr = [];
+      var i = 0 // i = 10时，循环停止
+      for(; i < 10; ) {
+        arr[i] = function() {
+          document.write(i + ' ');
+        }
+        i++
+      }
+      return arr;
+    }
+
+    var myArr = test();
+    for(var j = 0; j < 10; j++) {
+      myArr[j]()
+    }
+    // 1.使用立即执行函数
+    function test() {
+      for(var i = 0; i < 10; i++) {
+        (function() {
+          document.write(i + ' ');
+        })()
+      }
+    }
+    test()
+    // 2.使用参数
+    function test() {
+      var arr = [];
+      for(var i = 0; i < 10; i++) {
+        arr[i] = function(num) {
+          document.write(num + ' ');
+        }
+      }
+      return arr;
+    }
+
+    var myArr = test();
+    for(var j = 0; j < 10; j++) {
+      myArr[j](j)
+    }
+    // 3
+    function test() {
+      var arr = [];
+      for(var i = 0; i < 10; i++) {
+        (function(j) {
+          arr[j] = function() {
+            document.write(j + ' ');
+          }
+        })(i)
+        
+      }
+      return arr;
+    }
+
+    var myArr = test();
+    for(var j = 0; j < 10; j++) {
+      myArr[j]()
+    }
+  </script>
+</body>
+</html>

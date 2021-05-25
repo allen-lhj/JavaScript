@@ -1,0 +1,36 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-05-25 00:10:25
+ * @LastEditTime: 2021-05-25 00:17:28
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 逗号运算符总是返回最后一项
+    // 2. （）会将内部变为表达式，表达式后面加（）代表执行
+    var fn = (
+      function test1() {
+        return 1
+      },
+      function test2() {
+        return '2'
+      }
+    )()
+    console.log(typeof(fn)) // string
+
+
+// function b() {}为true，并且在（）内变为表达式，表达式会忽略名字，typeof b根本找不到
+    var a = 10;
+    if(function b(){}) {
+      a += typeof(b)
+    }
+    console.log(a) // ‘10undefined’
+  </script>
+</body>
+</html>
