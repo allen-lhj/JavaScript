@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 自定义构造函数, 没实例话之前this不存在，像封装插件肯定会使用到构造函数
+    function Teacher() {
+      this.name = '张三';
+      this.sex = '男';
+      this.smoke = function() {
+        console.log('I am smoking')
+      }
+    }
+    // 根据需要直接传入不同的名字，性别
+    function Teacher(name, sex) {
+      this.name = name;
+      this.sex = sex;
+      this.smoke = function() {
+        console.log('I am smoking')
+      }
+    }
+    // 如果参数多了就应该使用对象传参，清晰明了
+    opt = {
+      name: '小苗',
+      sex: '男'
+    }
+    function Teacher(opt) {
+      this.name = opt.name;
+      this.sex = opt.sex;
+      this.smoke = function() {
+        console.log('I am smoking')
+      }
+    }
+    // 可以将参数作为对象传入构造函数
+    new Teacher({name: '小米', sex: '男'})
+    // 像vue这样的框架，也是一个非常复杂的构造函数
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello vue'
+      }
+    })
+
+    function Car() {
+      this.name = 'tt'
+    }
+    Car() // this是window，GO，对象实例化的对象
+  </script>
+</body>
+</html>
