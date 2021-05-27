@@ -1,0 +1,40 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-05-26 22:38:28
+ * @LastEditTime: 2021-05-26 23:56:24
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // new Number()  new String() new Boolean()
+    var a = 1;
+    var b= new Number(a)
+    b.add = function() {
+      console.log(1)
+    }
+    b.add()
+    console.log(b + 4)
+
+    var c = 123
+    c.len = 3
+    console.log(c.len) // --> new Number(123).len ---> delete -->undefined
+
+    var d = '123'
+    console.log(d.length) // 3
+
+    var name = '1234';
+    name += 10; // '123410'
+    var type = typeof(name); // string
+    if(type.length === 6) { // true
+      type.text = 'string'  // new String(type).text = string -> 原始值无法保存 -> delete .[text]--> undefined
+    }
+    console.log(type.text)
+  </script>
+</body>
+</html>

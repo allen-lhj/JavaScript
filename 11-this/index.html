@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function Car(color, brand) {
+    //   this.color = color;
+    //   this.brand = brand;
+    // }
+    // var car = new Car('red', 'mzd')
+    // console.log(car.brand)
+    // 当Car构造函数运行的时候生成AO，当遇到new，就会在AO中生成一个this对象,并且在函数后还会return this
+    // this: {
+    //   color: color,
+    //   brand: brand
+    // }
+
+    // var str = '刘'
+    // console.log(str.charCodeAt(0))
+
+    // 1============================默认绑定
+    // this 的绑定规则，默认绑定，直接在全局中调用函数默认this指向window
+    function foo() {
+      console.log(this.a)
+    }
+    var a = 2;
+    foo(); // 2
+
+    // 2 ============================隐式绑定
+    // 隐式绑定--考虑函数调用位置是否有上下文对象AO，或者说是否被其他对象所包含，obj内包含foo
+    // 当foo()被调用的时候前面加上了对obj的引用，当函数调用有上下文对象时，隐式绑定规则会把函数调用中的this绑定到这个上下文对象
+    // var filterGather = [{mark: 123, vlaue: 'this'}, {mark: 'salary', value: 'this'}, {mark: 'salary', value: 'xxx'}]
+    // const salary = filterGather.reduce((pre, cur) => (cur.mark === 'salary' ? pre.push(cur.value) && pre : pre), [])
+    function foo() {
+      console.log(this.a)
+    }
+    var obj = {
+      a: 2,
+      foo: foo
+    }
+    var a = 3
+    obj.foo() // 2
+
+    // 2。1=========
+    // 虽然给bar赋值时为obj.foo的一个引用，但实际上引用的是foo函数本身，执行bar并没有关联其他对象上下文
+    function foo() {
+      console.log(this.a)
+    }
+    var obj = {
+      a: 2,
+      foo: foo
+    }
+    var bar = obj.foo
+    var a = 7
+    bar() // 全局的7
+
+    // 2.2  参数传递是一种隐式赋值，因此传入的参数也会和上一个例子一样，
+    function foo() {
+      console.log(this.a)
+    }
+    function doFoo(fn) {
+      // 传入一个对象引用的fn并执行
+      fn()
+    }
+    var obj = {
+      a: 2,
+      foo: foo
+    }
+    var a = 3
+    doFoo(obj.foo) // 3
+    //3===============显式绑定
+    // 通过call，apply， bind显式绑定this，它们的第一个参数是一个对象，为函数绑定this
+    function foo() {
+      console.log(this.a)
+    }
+    var obj = {
+      a: 2,
+    }
+    foo.call(obj) // 2
+    //4===========new 绑定
+    // 使用 new 来调用构造函数
+    // 1. 创建（或者说构造）一个全新的对象
+    // 2. 这个新对象会被prototype链接
+    // 3. 这个新对象会绑定到函数调用的this
+    // 4. 如果函数没有其他对象，那么new表达式只能够的函数调用就会自动返回这个新对象
+  </script>
+</body>
+</html>

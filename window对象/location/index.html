@@ -1,0 +1,32 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-05-26 10:12:28
+ * @LastEditTime: 2021-05-26 10:37:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // location是最有用的BOM对象之一，提供当前窗口中加载文档信息和导航功能
+    console.log(location.hash)
+    console.log(location.host)
+    console.log(location.hostname)
+    console.log(location.href)
+    console.log(location.username)
+    console.log(location.password)
+    // location.assign跳转url
+    setTimeout(() => {
+      location.assign('https://www.baidu.com')
+      // window.location = 'https://www.baidu.com'
+      // location.href = 'https://www.baidu.com'
+      // location.hash = '#section1'
+      // location.replace('https://www.baidu.com')
+    },2000)
+  </script>
+</body>
+</html>
