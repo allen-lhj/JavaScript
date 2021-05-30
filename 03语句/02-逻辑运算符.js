@@ -1,8 +1,4 @@
-/*
- * @Autor: lhj
- * @Date: 2021-05-11 23:14:32
- * @LastEditTime: 2021-05-12 00:16:14
- */
+
 /**
  * @description: 逻辑运算 与 && 或 || 非 ！
  * undefined 、 null 、NaN 、''、0、false是假，其他的都是真，例如1是真，2其实也是真
