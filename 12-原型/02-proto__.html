@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Car() {
+      this.name = '123'
+    }
+    Car.prototype.name = 'Benz'
+    var car = new Car()
+    console.log(Car)
+    console.log(car)
+    // 实例化对象后，构造函数会return一个this对象，那么这个this对象中包含了自己的name属性，并且有一个__proto__属性,如下
+    // {
+    //   name: '123'
+    //   __proto__: Car.prototype
+    // }
+  </script>
+</body>
+</html>

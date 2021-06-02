@@ -1,0 +1,35 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-06-01 17:34:14
+ * @LastEditTime: 2021-06-01 21:17:50
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // use object.create(指定原型)事件委托
+    var Task = {
+      setID: function(ID) { this.id = ID },
+      outputID: function() { console.log(this.id) },
+      name: '123'
+    }
+    var XYZ = Object.create(Task);
+    console.log(XYZ.name)
+    XYZ.prepareTask = function(ID, Label) {
+      this.setID(ID);
+      this.Label = Label;
+    }
+    XYZ.outputTaskDetails = function() {
+      this.outputID()
+      console.log(this.Label)
+    }
+    XYZ.prepareTask(123, 'lable text')
+    XYZ.outputTaskDetails()
+  </script>
+</body>
+</html>

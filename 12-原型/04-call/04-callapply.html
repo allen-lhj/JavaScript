@@ -1,0 +1,38 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-06-01 23:00:59
+ * @LastEditTime: 2021-06-02 09:43:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Compute() {
+      this.plus = function(a, b) {
+        console.log(a + b)
+      }
+      this.minus = function(a, b) {
+        console.log(a - b)
+      }
+    }
+
+    function FullCompute() {
+      Compute.call(this) // 改变this的指向
+      this.mul = function(a, b) {
+        console.log(a * b)
+      }
+      this.div = function(a, b) {
+        console.log(a / b)
+      }
+    }
+
+    var compute = new FullCompute()
+    compute.plus(1,2)
+  </script>
+</body>
+</html>
