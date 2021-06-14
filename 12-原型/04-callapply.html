@@ -1,7 +1,7 @@
 <!--
  * @Autor: lhj
  * @Date: 2021-06-01 23:00:59
- * @LastEditTime: 2021-06-02 09:43:59
+ * @LastEditTime: 2021-06-02 22:48:18
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,9 @@
 </head>
 <body>
   <script>
+    // 函数运行其实默认会执行 .call()
+    // 例如执行test（）
+    // function test() {} ===>test() ===> test.call()
     function Compute() {
       this.plus = function(a, b) {
         console.log(a + b)

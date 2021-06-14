@@ -1,7 +1,7 @@
 <!--
  * @Autor: lhj
  * @Date: 2021-05-13 22:31:15
- * @LastEditTime: 2021-05-16 14:30:42
+ * @LastEditTime: 2021-06-11 10:36:46
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,14 +12,14 @@
 </head>
 <body>
   <script>
-    //一个固定的功能或者是程序段被封装的过程
+    // 一个固定的功能或者是程序段被封装的过程
     // 实现一个固定的功能或者是程序，
     // 在这个封装体内需要一个入口和一个出口，
     // 入口就是参数，出口就是返回
 
     // 实参求和
     function test1(a, b) {
-      var sum = 0;
+      var sum = 0; 
       for (let i = 0; i < arguments.length; i++) {
         sum += arguments[i]
       }
@@ -39,7 +39,7 @@
        a = 9;
        console.log(arguments[0])
     }
-    test3(1,2)
+    test3(1, 2)
 
     // return 终止执行或返回数据
     function test4(name) {
@@ -52,21 +52,23 @@
     function test5(name) {
       return name || '没有姓名'
     }
-     
+    
     console.log(test5())
-    // 初始化参数,给b赋值 es6
-    function test6(a = 1, b) {
-      console.log(a)
-      console.log(b)
-    }
-    test6(undefined, 2); // 1 2
-    // es5给参数添加默认值
-    // 没给参数，arguments就为假，取后面的值
+    // 
+    // es5
+    // 给参数添加默认值,没给参数，arguments就为假，取后面的值
     function test7(a, b) {
       var a = arguments[0] || 1;
       var b = arguments[1] || 2;
       console.log(a + b)
     }
+    // es6 初始化参数,给b赋值 
+    function test6(a = 1, b) {
+      console.log(a)
+      console.log(b)
+    }
+    test6(undefined, 2); // 1 2
+    
   </script>
 </body>
 </html>

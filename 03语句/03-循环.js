@@ -1,7 +1,7 @@
 /*
  * @Autor: lhj
  * @Date: 2021-05-12 21:19:11
- * @LastEditTime: 2021-05-13 21:46:33
+ * @LastEditTime: 2021-06-09 21:54:14
  */
 // for循环中的第二个语句为判断语句，他总是返回true或false
 //从零开始做加法，加到什么时候总和是小于100的
@@ -94,12 +94,22 @@
     c = 0
   }
   // 斐波那契数列
-  var n = 8;
-  var n1 = 1,
-      n2 = 1,
-      n3;
-  for (let i = 2; i < n; i++) {
-    n3 = n1 + n2;
-    n1 = n2;
-    n2 = n3;
+  var n = parseInt(window.prompt('请输入第几位'));
+  if (n <= 0) {
+    console.log('输入错误')
+  } else {
+    var n1 = 1,
+        n2 = 1,
+        n3;
+
+    if (n <= 2) {
+      console.log(1);
+    } else {
+      for (var i = 2; i < n; i++) {
+        n3 = n1 + n2;
+        n1 = n2;
+        n2 = n3;
+      }
+      console.log(n3)
+    }
   }

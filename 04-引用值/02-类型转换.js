@@ -1,7 +1,7 @@
 /*
  * @Autor: lhj
  * @Date: 2021-05-12 23:09:55
- * @LastEditTime: 2021-05-13 19:05:00
+ * @LastEditTime: 2021-06-09 07:47:06
  */
 
  // 转换数字时，非数字类型都是NaN
@@ -37,8 +37,8 @@ var a = '1' > 2; // false string--> number
 var a = 'b' > 'c' // 比较ASCII码
 
 
-var a1 = 2 > 1 > 3; // 2> 1 返回true， true就是1小于3返回false
-var a2 = 2 > 1 == 1;
+var a1 = 2 > 1 > 3; //false 2> 1 返回true， true就是1小于3返回false
+var a2 = 2 > 1 == 1; // true
 
 // undefined 与 null既不大于0也不小于0也不等于0
 console.log(undefined == null) // true
