@@ -7,13 +7,19 @@
 </head>
 <body>
   <script>
-    function Car() {
-      this.name = '123'
-    }
-    Car.prototype.name = 'Benz'
+    Car.prototype.name = 'Mazda'
+    function Car() {}
+    
     var car = new Car()
-    console.log(Car)
-    console.log(car)
+    Car.prototype.name = 'Benz'
+    // Car.prototype = {
+    //   name: 'Benz'
+    // }
+    car.age = 3
+    console.log(car.name) // Mazda
+    console.log(car) // Car
+    console.log(car.prototype)
+    console.log(Car.prototype)
     // 实例化对象后，构造函数会return一个this对象，那么这个this对象中包含了自己的name属性，并且有一个__proto__属性,如下
     // {
     //   name: '123'

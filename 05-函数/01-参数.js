@@ -1,7 +1,7 @@
 /*
  * @Autor: lhj
  * @Date: 2021-05-13 22:30:04
- * @LastEditTime: 2021-06-13 13:45:48
+ * @LastEditTime: 2021-06-15 04:26:48
  */
  // arguments对象不是一个Array，它类似Array，但是除了length 属性和索引元素以外没有任何Array属性
  function test(a, b) {
@@ -38,3 +38,9 @@ function test2(name) {
 }
 
 console.log(test2())
+
+function test3(a, b) {
+  b = 3;
+  console.log(arguments[1])
+}
+test3(1)

@@ -1,0 +1,26 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-06-21 22:55:25
+ * @LastEditTime: 2021-06-21 23:01:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Car(brand, color) {
+      this.brand = brand;
+      this.color = color;
+    }
+    var newCar = {}
+
+    // Car.call(newCar, 'Banz', 'red');
+    Car.apply(newCar, ['Benz', 'red'])
+    console.log(newCar)
+  </script>
+</body>
+</html>

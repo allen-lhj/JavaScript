@@ -9,11 +9,13 @@
   <script>
     function test() {
       var arr = [];
+      // var i = 0;
       for(var i = 0; i < 10; i++) {
         arr[i] = function() {
           document.write(i + ' ');
         }
       }
+      // i++
       return arr;
     }
 
@@ -39,6 +41,7 @@
     for(var j = 0; j < 10; j++) {
       myArr[j]()
     }
+    //因为当访问arr时，函数AO没有释放，一直访问的是test中的变量i，而当函数执行时，for循环已经执行完，i已经变成了10
     // 1.使用立即执行函数
     function test() {
       for(var i = 0; i < 10; i++) {
