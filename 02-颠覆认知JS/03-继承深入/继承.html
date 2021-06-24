@@ -1,0 +1,34 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-06-22 11:29:27
+ * @LastEditTime: 2021-06-22 11:37:23
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    Professor.prototype = {
+      name: 'Mr. Zhang',
+      tSkill: 'JAVA'
+    }
+    function Professor() {}
+
+    var professor = new Professor();
+
+    // Teacher.prototype = professor;
+    Teacher.prototype = new Professor();
+
+    function Teacher() {
+      this.name = 'Mr Wang',
+      this.mSkill = 'JS/JQ'
+    }
+    var teacher = new Teacher();
+    console.log(teacher);
+  </script>
+</body>
+</html>
