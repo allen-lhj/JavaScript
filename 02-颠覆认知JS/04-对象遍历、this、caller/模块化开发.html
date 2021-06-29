@@ -1,0 +1,35 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-06-24 09:43:16
+ * @LastEditTime: 2021-06-24 09:45:22
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      init()
+    }
+    function init() {
+      console.log(initFb(10))
+    }
+    var initFb = (function() {
+      function fb(n) {
+        if (n <= 0) {
+          return 0;
+        }
+        if (n <= 2) {
+          return 1;
+        }
+        return fb(n - 1) + fb(n - 2);
+      }
+      return fb
+    })()
+  </script>
+</body>
+</html>

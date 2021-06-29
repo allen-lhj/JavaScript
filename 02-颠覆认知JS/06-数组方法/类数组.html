@@ -1,0 +1,61 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-06-24 18:29:29
+ * @LastEditTime: 2021-06-25 18:48:23
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function test() {
+      console.log(arguments)
+    }
+    test(1,2,3,4,5)
+
+    var obj = {
+      '0': 1,
+      '1': 2,
+      '2': 3,
+      '3': 4,
+      '4': 5,
+      'length': 6,
+    }
+    Object.prototype.push = Array.prototype.push;
+    Object.prototype.splice = Array.prototype.splice;
+    obj.push(6)
+    obj[2] = 0
+    console.log(obj)
+
+    function inherit(target, origin) {
+      const buffer = function(){}
+      buffer.prototype = origin.prototype;
+      target.prototype = new buffer();
+      target.prototype.constructor = target;
+      target.prototype.super_class = origin
+    }
+
+    
+    function deepClone(origin, target) {
+      const target = target || {},
+            toStr = Obejct.prototype.toString,
+            typeArray = '[object Array]';
+      for (key in origin) {
+        if (origin.hasOwnProperty(key)) {
+          if (typeof(origin[key]) === 'object' && origin[key] !== null) {
+            origin[key] === typeArray ? target[key] = [] : target[key] = {}
+          }
+          deepClone(origin[key], target[key])
+        }else {
+          target[key] = origin[key]
+        }
+      }
+      return target
+    }
+  </script>
+</body>
+</html>

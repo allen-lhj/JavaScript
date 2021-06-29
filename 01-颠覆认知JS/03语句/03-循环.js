@@ -1,10 +1,6 @@
-/*
- * @Autor: lhj
- * @Date: 2021-05-12 21:19:11
- * @LastEditTime: 2021-06-09 21:54:14
- */
+
 // for循环中的第二个语句为判断语句，他总是返回true或false
-//从零开始做加法，加到什么时候总和是小于100的
+// 从零开始做加法，加到什么时候总和是小于100的
   var sum = 0;
   for(let i = 0; i< 100; i++) {
     sum += i;
@@ -35,7 +31,7 @@
   // {}不能写i++,i--
   let i = 100;
   for(; i--;) {
-      console.log(i) // i = 0时,for循环中中间的语句时判断语句，所以他只能返回true or false，i= 0时为false，循环停止
+    console.log(i) // i = 0时,for循环中中间的语句时判断语句，所以他只能返回true or false，i= 0时为false，循环停止
   }
 
   // 10 的 n 次方
@@ -94,6 +90,7 @@
     c = 0
   }
   // 斐波那契数列
+  
   var n = parseInt(window.prompt('请输入第几位'));
   if (n <= 0) {
     console.log('输入错误')
