@@ -6,10 +6,18 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="idbox">1</div>
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+  <div class="box">4</div>
+
+  <input type="text" name="username">
+  <input type="text" name="username">
   <script>
     /**
      * DOM -> Document Object Model 文档对象模型
-     * DOM 是一个对象 --》宿主对象
+     * DOM 是一个对象 -->宿主对象
      * JavaScript
      * 提供三种对象
      * 1. 本地对象（Native Object）：
@@ -21,8 +29,21 @@
      * 3.宿主对象（Host Object）   
      *   执行JS脚本的环境提供的对象（浏览器提供的对象），不同的浏览器所提供的对象可能有所不同，所以可能产生兼容性问题
      * 浏览器对象BOM中的window对象，DOM中的document对象，DOM是从BOM中拆分出来，
-     * DOM：通过浏览器提供的方法表示或者操作HTML和XML
+     * DOM：通过浏览器提供的方法表示或者操作HTML和XML,通过DOM修改元素的样式是在HTML标签的style属性添加了
+     * 内联样式。内联样式的优先级最高从而覆盖了CSS
     */
+  //  console.log(document)
+   var idBox = document.getElementById('idbox')
+   console.log(idBox)
+  //  var box = document.getElementsByTagName('div')
+  //  console.log(box)
+  //  var boxes = document.getElementsByClassName('box');
+  //  console.log(boxes);
+   var input = document.getElementsByName('username')[0]; // 不常用
+  //  console.log(input);
+   // querySelector querySelectorAll HTML5新引入的 WEB API
+   var div1 = document.querySelector('.box')
+   console.log(div1)
   </script>
 </body>
 </html>

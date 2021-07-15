@@ -1,0 +1,42 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-06-22 22:11:51
+ * @LastEditTime: 2021-07-12 17:19:16
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Teacher(name, mSkill) {
+      this.name = name;
+      this.mSkill = mSkill;
+    }
+    Teacher.prototype = {
+      pSkill: 'JS/JQ'
+    }
+
+    var t = new Teacher();
+
+    function Student() {
+      this.name = 'Mr Zhang';
+    }
+
+    function inherit(target, origin) {
+      function Buffer() {}
+      Buffer.prototype = origin.prototype;
+      target.prototype = new Buffer();
+      target.prototype.constructor = target;
+      target.prototype.super_class = origin;
+    }
+
+    var s = new Student()
+    inherit(s, t)
+    console.log(s)
+  </script>
+</body>
+</html>

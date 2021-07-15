@@ -1,0 +1,42 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-14 14:35:43
+ * @LastEditTime: 2021-07-14 14:50:04
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background: green;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <script>
+    // 事件的概念
+    // 1、吃饭是一个事件，长胖是一个反馈
+    // 2、对于一个元素进行点击，鼠标移入移出，这类操作就是事件，事件本身就存在，而我们所谓的绑定事件其实是给事件绑定一个处理（反馈）函数
+    // 3、绑定事件 = 绑定事件的处理函数
+    // 4、事件 + 事件的反馈 = 前端交互 -- 交互体验
+
+    // 事件具柄的绑定形式
+    var oDiv = document.getElementsByTagName('div')[0]
+    oDiv.onclick = function() {
+      this.style.backgroundColor = 'orange'
+    }
+    // 事件作用在谁的身上，谁就是事件源，事件源一定是一个对象
+
+    // 绑定事件处理函数的方式
+
+    // 1-----
+    
+  </script>
+</body>
+</html>

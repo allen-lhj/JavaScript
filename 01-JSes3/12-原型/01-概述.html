@@ -1,0 +1,49 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-05-30 22:47:50
+ * @LastEditTime: 2021-07-12 16:52:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 构造函数声明后生成自己的原型对象prototype，
+    //通过new构造实例后，实例的this中有一个__proto__属性，内部有constructor指向它的原型对象
+    function Handphone(color, brand) {
+      this.color = color;
+      this.brand = brand;
+    }
+    // Handphone.prototype.rom = '64G'
+    // Handphone.prototype.ram = '6G'
+    // Handphone.prototype.screen = '16:9'
+
+    obj = {
+      rom: '64G',
+      ram: '6G',
+      screen: '18:9',
+      system: 'Android',
+      call: function() {
+        console.log('I am calling somebody')
+      }
+    }
+    Handphone.prototype = obj
+    console.log(Handphone.prototype)
+    var hp1 = new Handphone('red', '苹果');
+    var hp2 = new Handphone('black', '小米');
+    console.log(hp1);
+    // function test() {
+    //   this.name = 'abc'
+    // }
+    // console.log(test.prototype.constructor)
+    // prototype是定义构造函数，构造出得每个对象的公共祖先，如果在new一个对象的时候，
+    // 定义了这个属性或方法，就会使用定义的属性，如果在定义的属性上找不到，就会去原型上找
+    // 往往在写构造函数的时候，如果 new出来的对象都需要固定的属性，或者说是每个对象都有的相同的值，如果写在构造函数中会产生一定的冗余，所以往往将都将需要的属性定义在原型上
+    // 比如在别人的插件中有一些写在构造函数内部，有一些写在原型上，同时函数往往写在原型上，往往一些属性需要传参的才写在构造函数中，而一些方法往往是处理一样的逻辑，所以写在原型上
+  </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-06 13:40:20
+ * @LastEditTime: 2021-07-06 16:17:17
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    a {
+      text-decoration: none;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .dropdown {
+      position: relative;
+      width: 200px;
+      height: 50px;
+      background-color: #000;
+    }
+
+    .dropdown::after {
+      content: "";
+      display: table;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 18px;
+      height: 18px;
+      background-image: url(./img/arrow-down.png);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    .dropdown.up::after {
+      background-image: url(./img/arrow-top.png);
+    }
+
+    .dropdown .list {
+      display: none;
+    }
+
+    .dropdown a {
+      display: block;
+    }
+
+    .dropdown .main {
+      display: block;
+      height: 100%;
+      text-align: center;
+      line-height: 50px;
+      color: #fff;
+    }
+
+    .dropdown .item {
+      height: 40px;
+      background-color: #333;
+    }
+
+    .dropdown item:hover {
+      background-color: #000;
+    }
+
+    .dropdown .item a {
+      height: 100%;
+      color: #999;
+      text-align: center;
+      line-height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dropdown">
+    <a href="javascript:;" class="main">下拉菜单</a>
+    <ul class="list">
+      <li class="item"><a href="">第一个项目</a></li>
+      <li class="item"><a href="">第一个项目</a></li>
+      <li class="item"><a href="">第一个项目</a></li>
+      <li class="item"><a href="">第一个项目</a></li>
+      <li class="item"><a href="">第一个项目</a></li>
+    </ul>
+  </div>
+  <script>
+    var dropdown = document.getElementsByClassName('dropdown')[0],
+        oList = elemChildren(dropdown)[1];
+
+    dropdown.onmouseenter = function() {
+      oList.style.display = 'block';
+      this.className += ' up';
+    }
+
+    dropdown.onmouseleave = function() {
+      oList.style.display = 'none';
+      this.className = 'dropdown'
+    }
+
+    function elemChildren(node) {
+      var temp = {
+        'length': 0,
+        'push': Array.prototype.push,
+        'splice': Array.prototype.splice
+      }
+      var children = node.childNodes,
+          len = children.length,
+          item;
+      for(var i = 0; i < len; i++) {
+        item = children[i];
+        if (item.nodeType === 1) {
+          temp.push(item);
+        }
+      }
+      return temp
+    }
+  </script>
+</body>
+</html>

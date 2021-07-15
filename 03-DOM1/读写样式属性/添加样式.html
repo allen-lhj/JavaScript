@@ -1,0 +1,36 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-06 10:44:35
+ * @LastEditTime: 2021-07-07 20:38:15
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: #000;
+    }
+    .box.active {
+      width: 200px;
+      height: 200px;
+      background: red;
+      border-width: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" style="width: 100px;"></div>
+  <script>
+    var div = document.getElementsByClassName('box')[0];
+    div.onclick = function() {
+      this.className += ' active'
+    }
+    window.getComputedStyle(div, null)['width']
+  </script>
+</body>
+</html>

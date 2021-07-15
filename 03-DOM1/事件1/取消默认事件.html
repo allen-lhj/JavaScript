@@ -1,0 +1,27 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-15 07:15:57
+ * @LastEditTime: 2021-07-15 09:36:47
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="#">百度</a>
+  <a href="javascript:;">百度</a>
+  <a href="javascript:void(0)">相当于return 0</a>
+  <script>
+    document.oncontextmenu = function(e) {
+      var e = e || window.event;
+      return false;
+      // w3c：e.preventDefault(); // IE9不兼容
+      // e.returnValue = false;
+
+    }
+  </script>
+</body>
+</html>

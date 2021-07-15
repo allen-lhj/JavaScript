@@ -1,0 +1,55 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-06-24 10:14:06
+ * @LastEditTime: 2021-07-06 11:05:37
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var person1 = {
+      name: '战士',
+      age: 18,
+      sex: 'male',
+      arr: [1,2,3],
+      a: undefined,
+      obj: {
+        name: 'ss',
+        age: 16,
+        obj3: {
+          key: 1
+        }
+      }
+    }
+
+    // console.log(person3)
+    function deepClone(origin, target) {
+      var target = target || {},
+          toStr = Object.prototype.toString,
+          tpyeArray = '[object Array]';
+      for (key in origin) {
+        if (origin.hasOwnProperty(key)) {
+          if (typeof(origin[key]) === 'object' && origin[key] !== null) {
+            toStr.call(origin[key]) === tpyeArray ? target[key] = [] : target[key] = {}
+            deepClone(origin[key], target[key])
+          } else {
+            target[key] = origin[key]
+          }
+        }
+      }
+      return target
+    }
+
+    var person2 = deepClone(person1)
+    person2.arr.push(3,4,5)
+    console.log(person1)
+
+    console.log(person2)
+  </script>
+</body>
+</html>

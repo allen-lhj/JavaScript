@@ -1,0 +1,25 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-14 17:32:30
+ * @LastEditTime: 2021-07-14 17:43:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button></button>
+  <script>
+    var oBtn = document.getElementsByTagName('button')[0]
+    // oBtn.onclick = function() {
+    //   console.log(this) // <button><button>
+    // }
+    oBtn.addEventListener('click', function() {
+      console.log(this) // <button><button>
+    }, false)
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-14 15:32:08
+ * @LastEditTime: 2021-07-14 17:53:54
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {
+      outline: none;
+    }
+    .loading {
+      background-color: #ddd;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <button>加载更多</button>
+  <script>
+    // elem.addEventListener(事件类型，事件处理函数，false) IE9以下不支持
+    var oBtn = document.getElementsByTagName('button')[0];
+    oBtn.addEventListener('click', function() {
+      this.innerHTML = '加载中'
+      this.className = 'loading'
+      // setTimeout 中的函数this默认指向window
+      var self = this
+      setTimeout(function() {
+        
+        self.innerHTML = '加载更多'
+        self.className = ''
+      }, 2000)
+    })
+    oBtn.addEventListener('click', function() {
+      console.log(123)
+    })
+    // 两个函数都执行
+
+    // 只打印一个1，因为绑定的是同一个函数
+    oBtn.addEventListener('click', test, false)
+    oBtn.addEventListener('click', test, false)
+    // oBtn.removeEventListener('click', test, false)  监听的时候是什么样子，解除时也要是什么样子
+    function test() {
+      console.log(1)
+    }
+  </script>
+</body>
+</html>

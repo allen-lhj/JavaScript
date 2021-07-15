@@ -1,0 +1,62 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-14 18:19:40
+ * @LastEditTime: 2021-07-14 22:07:30
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {
+      background: red;
+      width: 200px;
+      height: 50px;
+      color: #fff;
+      font-size: 30px;
+    }
+    .got {
+      background: gray;
+    }
+  </style>
+</head>
+<body>
+  <button>领取红包</button>
+  <script>
+    var oBtn = document.getElementsByTagName('button')[0];
+    oBtn.onclick = function() {
+      console.log(1)
+      this.innerHTML = '已领取'
+      this.className = 'got'
+      this.onclick = null; // 清除事件
+    }
+
+    // addEventListener 想要删除监听不要使用匿名函数
+    oBtn.addEventListener('click', test, false);
+    function test() {
+      this.innerHTML = '已领取'
+      this.className = 'got'
+      this.removeEventListener('click', test, false);
+    }
+
+    // 给匿名函数加个名字
+    oBtn.addEventListener('click', function test() {
+      this.innerHTML = '已领取'
+      this.className = 'got'
+      console.log(1)
+      this.removeEventListener('click', test, false);
+    }, false)
+
+
+    // 非严格模式下，使用arguments.calle获取当前函数
+    oBtn.addEventListener('click', function() {
+      this.innerHTML = '已领取'
+      this.className = 'got'
+      console.log(1)
+      this.removeEventListener('click', arguments.callee, false);
+    }, false)
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-01 18:14:25
+ * @LastEditTime: 2021-07-02 16:10:02
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+        <!-- 注释 -->
+        <p></p>
+    <ul>
+      <li>
+        <h1>1</h1>
+        <a href="">2</a>
+        0<p>3</p>123
+      </li>
+    </ul>
+  </div>
+  <script>
+    var div = document.getElementsByTagName('div')[0];
+
+    function eleChilren(node) {
+      var arr = [],
+          children = node.childNodes;
+      for(let i = 0; i < children.length; i++) {
+        let childrenItem = children[i]
+        if (childrenItem.nodeType === 1) {
+          arr.push(childrenItem)
+        }
+      }
+      return arr;
+    }
+    // console.log(eleChilren(div))
+    var a = {
+      '0': 1,
+      '1': 2,
+      'length': 2,
+      'splice': Array.prototype.splice
+    }
+    console.log(a)
+  </script>
+</body>
+</html>

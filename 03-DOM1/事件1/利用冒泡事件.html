@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .link {
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <a href="http://www.baidu.com" class="link" target="_blank">
+    <div class="inner">点击</div>
+  </a>
+  <script>
+    var inner = document.getElementsByClassName('inner')[0];
+    inner.onclick = function(e) {
+      var e = e || winow.event;
+
+      e.preventDefault();
+      console.log('点击了');
+    }
+  </script>
+</body>
+</html>

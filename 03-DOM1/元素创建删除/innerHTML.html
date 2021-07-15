@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <h1 class="title">标题</h1>
+    <p>段落</p>
+  </div>
+  <script>
+    var div = document.getElementsByTagName('div')[0];
+    var h1 = document.getElementsByTagName('h1')[0];
+    div.setAttribute('id', 'box')
+    div.setAttribute('id', 'box1')
+    var title = h1.getAttribute('class')
+    console.log(title)
+  </script>
+</body>
+</html>

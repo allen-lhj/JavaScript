@@ -1,0 +1,49 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-15 11:49:47
+ * @LastEditTime: 2021-07-15 16:19:49
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件委托或事件代理</title>
+</head>
+<body>
+  <button>增加</button>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+  </ul>
+  <script>
+    var oList = document.getElementsByTagName('ul')[0],
+        oLi = oList.getElementsByTagName('li'),
+        oBtn = document.getElementsByTagName('button')[0];
+    oList.onclick = function(e) {
+      var e = e || window.event,
+          tar = e.target || e.srcElement
+      // for(var i = 0; i < oList.length; i++) {
+      //   item = oLi[i]
+      //   if (item === tar) {
+      //     conslole.log(i)
+      //   }
+      // }
+      var index = Array.prototype.indexOf.call(oLi, tar)
+      console.log(tar)
+      console.log(tar.innerText)
+    }
+
+    oBtn.onclick = function() {
+      var li = document.createElement('li');
+      li.innerText = oLi.length + 1;
+      oList.appendChild(li)
+    }
+    
+  </script>
+</body>
+</html>

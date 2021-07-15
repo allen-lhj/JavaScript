@@ -1,0 +1,47 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-14 15:18:45
+ * @LastEditTime: 2021-07-14 17:51:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {
+      outline: none;
+    }
+    .loading {
+      background-color: #ddd;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <button>加载更多</button>
+  <script>
+    var oBtn = document.getElementsByTagName('button')[0];
+    oBtn.onclick = function() {
+      this.innerHTML = '加载中。。。'
+      this.className = 'loading'
+      // setTimeout 中的函数this默认指向window
+      var self = this
+      setTimeout(function() {
+        
+        self.innerHTML = '加载更多'
+        self.className = ''
+      }, 2000)
+    }
+    // 优点兼容性好，缺点一个元素同一个事件绑定两个函数，第二个函数会将第一个覆盖
+    oBtn.onclick = function() {
+      console.log('加载')
+    }
+
+    // 与在元素上写内联事件监听效果相同
+    // 接触事件函数
+    oBtn.onclick = null;
+  </script>
+</body>
+</html>
