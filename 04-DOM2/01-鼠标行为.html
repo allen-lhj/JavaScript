@@ -1,0 +1,98 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-27 16:10:45
+ * @LastEditTime: 2021-07-27 23:30:45
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      position: absolute;
+      top: 200px;
+      left: 200px;
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script src="../封装/utils.js"></script>
+  <script>
+    // 鼠标行为 -->坐标系
+    // clientX/Y 鼠标位置相对于当前可视区域的坐标（不包括滚动条的距离）
+    // screenX/y 鼠标位置相对于屏幕的坐标
+    // pageX/pageY 鼠标位置相对于当前文档的坐标（包含滚动条的距离）
+    // offsetX/Y  鼠标位置相对于块元素的坐标（包含边框，safari不包括边框）
+
+
+
+    // layerX/Y  同pageX/Y相同 ，IE11以下和clientX/Y相同
+    // x/y 与clientX/Y相同。但是老版fixfox不支持
+    // document.onclick = function(event) {
+    //   var e = event || window.event;
+    //   console.log(e.screenY, e.pageY)
+    // }
+
+    // mousedown mouseup mousemove
+    var box = document.getElementsByClassName('box')[0],
+        x,
+        y;
+    // document.onmousemove = function(e) {
+    //   var e = e || window.event,
+    //       page = pagePos(e);
+    //   box.style.left = page.X + 'px';
+    //   box.style.top = page.Y + 'px';
+    // }
+
+    // box.onmousedown = function(e) {
+    //   var e = e || window.event;
+    //   鼠标点击在box内点击的位置距离减去box距离document边界的距离
+    //   x = pagePos(e).X - parseInt(getStyles(box, 'left'));
+    //   y = pagePos(e).Y - parseInt(getStyles(box, 'top'));
+    //   document.onmousemove = function(e) {
+    //     var e = e || window.event;
+
+    //     box.style.left = pagePos(e).X - x + 'px';
+    //     box.style.top = pagePos(e).Y - y + 'px';
+    //   }
+
+    //   document.onmouseup = function(e) {
+    //     box.onmousemove = null;
+    //     document.onmouseup = null;
+    //   }
+    // }
+
+    function elemDrag(elem) {
+      var x,
+          y;
+      addEvent(elem, 'mousedown', function(e) {
+        var e = e || window.event;
+        x = pagePos(e).X - getStyles(elem, 'left');
+        y - pagePos(e).Y - getStyles(elem, 'top');
+
+        addEvent(document, 'mousemove', mousemove);
+        addEvent(document, 'mouseup', mouseup);
+      });
+
+      function mouseMove(e) {
+        var e = e || window.event;
+        elem.style.top = pagePos(e).X - x + 'px';
+        elem.style.left = pagePos(e).Y - y + 'px';
+      }
+
+      function mouseUp(e) {
+        var e = e || window.event;
+        removeEvent(document, 'mousemove', mouseMove);
+        removeEvent(document, 'mouseup', mouseUp);
+      }
+    }
+
+  </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <!--
  * @Autor: lhj
  * @Date: 2021-07-05 21:16:17
- * @LastEditTime: 2021-07-06 07:02:30
+ * @LastEditTime: 2021-07-28 20:50:34
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -32,26 +32,26 @@
   <!-- </div> -->
   <script>
     var son = document.getElementsByClassName('son')[0]
-  // function getViewportSize() {
-  //   if (window.innerWidth) {
-  //     return {
-  //       width: window.innerWidth,
-  //       height: window.innerHeight
-  //     }
-  //   } else {
-  //     if (document.compatMode === 'BackCompat') {
-  //       return {
-  //         width: document.body.clientWidth,
-  //         height: document.body.clientHeight
-  //       }
-  //     } else {
-  //       return {
-  //         width: document.documentElement.clientWidth,
-  //         hegiht: document.documentElement.clientHeight
-  //       }
-  //     }
-  //   }
-  // }
+  function getViewportSize() {
+    if (window.innerWidth) {
+      return {
+        width: window.innerWidth,
+        height: window.innerHeight
+      }
+    } else {
+      if (document.compatMode === 'BackCompat') {
+        return {
+          width: document.body.clientWidth,
+          height: document.body.clientHeight
+        }
+      } else {
+        return {
+          width: document.documentElement.clientWidth,
+          hegiht: document.documentElement.clientHeight
+        }
+      }
+    }
+  }
   function getELeDocPostion(el) {
     var parent = el.offsetParent,
         offsetLeft = el.offsetLeft,

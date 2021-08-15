@@ -9,7 +9,7 @@
 // 在条件中 && 就是并且，两边必须同时满足，|| 表示或者，满足左右一起中一项就可
 var score = 98;
 
-if (score <= 100 && score >=90) {
+if (score <= 100 && score >= 90) {
   console.log('你的成绩为A')
 }
 

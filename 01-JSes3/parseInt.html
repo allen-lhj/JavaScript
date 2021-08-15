@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    // parseInt(string, Radix)
+    // 解析一个字符串（string）并返回指定基数（Radix）的十进制整数
+    // Radix 2-36之间的整数，要解析成整数的字符串是什么进制，Radix就是多少
+     console.log(parseInt('10', 2))   // '10'被当作2进制转换成10进制整数
+    parseInt(a1) // a不能转换  返回NaN
+    parseInt(1a) // 转换1，后面发现不能转换就截断
+</script>
 </body>
 </html>

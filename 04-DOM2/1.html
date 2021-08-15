@@ -1,0 +1,47 @@
+<!--
+ * @Autor: lhj
+ * @Date: 2021-07-28 10:42:19
+ * @LastEditTime: 2021-07-28 15:26:37
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    div {
+      position: absolute;
+      left: 200px;
+      width: 100px;
+      height: 100px;
+      padding-right: 20px;
+      background-color: #f00;
+    }
+    a {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <script src="./鼠标拖拽/js/utils.js"></script>
+  <div></div>
+  <a href=""></a>
+  <script>
+    var div = document.getElementsByTagName('div')[0]
+    var a = document.getElementsByTagName('a')[0] // a元素行内元素设置绝对定位后变为块级元素
+    
+    // console.log(div.offsetWidth)
+    // div.style.left = '200px'
+    // ele.currentStyle[prop]
+    // console.log(div.currentStyle)
+    // console.log(window.getComputedStyle(div, null)['display'])
+    console.log(window.getComputedStyle(a, null)['display'])
+    // console.log(getStyles(div, 'left'))
+    // console.log(div)
+  </script>
+</body>
+</html>

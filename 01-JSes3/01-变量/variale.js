@@ -12,9 +12,15 @@ f = 9;
 console.log(f)
 
 
-
 // 引用值
 var arr1 = [1,2,3,4]
 var arr2 = arr1;
 arr1.push(5,6)
 console.log(arr2)
+
+// 原始值
+// number string boolean undefined null symbol
+
+// 引用值
+
+// array object function date RegExp
