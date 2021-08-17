@@ -18,9 +18,7 @@ function deepClone(origin, target) {
   }
   return target
 }
+// const arr = data.sort((a, b) => ((b.silence / b.online) - (a.silence / a.online)))
 const arr = deepClone(data, []).sort((a, b) => ((b.silence / b.online) - (a.silence / a.online)))
-const arr2 = deepClone(data, []).sort((a, b) => ((b.fatigue / b.fatigue) - (a.fatigue / a.fatigue)))
-
-console.log(arr)
-
-console.log(arr2)
+// const arr2 = deepClone(data, []).sort((a, b) => ((b.fatigue / b.fatigue) - (a.fatigue / a.fatigue)))
+console.log(data === arr)
