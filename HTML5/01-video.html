@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- video 与 audio 是HTML5提供的音视频播放的标准接口
+  Flash player 私有技术， 独立于浏览器的一个插件 ，使用前必须安装插件，浏览器本身没有，性能较差，加载资源的时间长，安全性差 -->
+  <video id="vd" controls autoplay tabindex="2" mediatype="video" crossorigin="anonymous" 
+  src="https://vd3.bdstatic.com/mda-kj9maz0vzbb4136f/hd/mda-kj9maz0vzbb4136f.mp4?v_from_s=hkapp-haokan-tucheng&amp;auth_key=1629188723-0-0-c2d4f8b3089ee0de27ea8a4977fd8995&amp;bcevod_channel=searchbox_feed&amp;pd=1&amp;pt=3&amp;abtest=3000185_1"></video>
+   <button class="btn">重载</button>
+   <button class="btn">播放</button>
+   <button class="btn">暂停</button>
+   <button class="btn">获取当前时间</button>
+   <button class="btn">获取视频总时长</button>
+   <button class="btn">获取播放状态</button>
+   <button class="btn">设置静音</button>
+   <button class="btn">设置音量</button>
+   <button class="btn">设置播放倍数</button>
+   <button class="btn">播放/暂停</button>
+   <script>
+     var oLoadBtn = document.getElementsByClassName('btn')[0]
+     var oPlayBtn = document.getElementsByClassName('btn')[1]
+     var oPauseBtn = document.getElementsByClassName('btn')[2]
+     var oGetCurrentTime = document.getElementsByClassName('btn')[3]
+     var oGetDuration = document.getElementsByClassName('btn')[4]
+     var oGetPlayStatus = document.getElementsByClassName('btn')[5]
+     var onSetMuted = document.getElementsByClassName('btn')[6]
+     var oSetVolume = document.getElementsByClassName('btn')[7]
+     var oSetplayRate = document.getElementsByClassName('btn')[8]
+     var oPlayorPaused = document.getElementsByClassName('btn')[9]
+     var oVd = document.getElementById('vd')
+     // 重新加载视频，比如更新src
+     oLoadBtn.onclick = function() {
+       oVd.load();
+     }
+     // 播放视频
+     oPlayBtn.onclick = function() {
+       oVd.play()
+     }
+     // pause
+     oPauseBtn.onclick = function() {
+       oVd.pause()
+     }
+     // currentTime / s
+     oGetCurrentTime.onclick = function() {
+       console.log(oVd.currentTime)
+     }
+     // duration /s
+     oGetDuration.onclick = function() {
+       console.log(oVd.duration)
+     }
+
+     // paused
+     oGetPlayStatus.onclick = function() {
+       if (oVd.paused) {
+         console.log('暂停中')
+       } else {
+         console.log('播放中')
+       }
+     }
+     //oPlayorPaused
+     oPlayorPaused.onclick = function() {
+       if (oVd.paused) {
+         oVd.play()
+       } else {
+         oVd.pause()
+       }
+     }
+     // muted 静音
+     onSetMuted.onclick = function() {
+       if (oVd.muted) {
+         oVd.muted = false
+       } else {
+        oVd.muted = true
+       }
+     }
+
+     // 0.0 - 1.0 播放音量
+     oSetVolume.onclick = function() {
+       console.log(oVd.volume)
+       oVd.volume = 0.5
+       console.log(oVd.volume)
+     }
+     // 播放倍数
+     oSetplayRate.onclick = function() {
+       oVd.playbackRate = 2;
+       console.log(oVd.playbackRate)
+     }
+
+     // 事件==========================================
+     // 视频加载完毕，可以播放
+     oVd.addEventListener('canplay', function() {
+       console.log('canplay')
+     }, false)
+
+     // 视频播放完毕
+     oVd.addEventListener('ended', function() {
+       console.log('ended')
+     }, false)
+
+     // onerror
+
+     oVd.addEventListener('error', function() {
+       console.log('canplay')
+     }, false)
+
+     // onplay, oVd.buffered.end(0)缓冲的秒数，可以用来做进度条中的缓冲进度
+     oVd.addEventListener('play', function() {
+       console.log('playing')
+       console.log(oVd.buffered.end(0), oVd.duration)
+     }, false)
+
+     // onseeked 拖动进度条结束时
+     oVd.addEventListener('seeked', function() {
+       console.log('seeked')
+     }, false)
+
+     // 拖动进度条过程中
+     oVd.addEventListener('seeking', function() {
+       console.log('seeking')
+     }, false)
+
+     // 播放倍数被改变
+     oVd.addEventListener('ratechange', function() {
+       console.log(this.playbackRate)
+     }, false)
+
+     // 音量改变
+     oVd.addEventListener('volumechange', function() {
+       console.log(this.volume)
+     }, false)
+
+     // 缓冲中出发
+     oVd.addEventListener('waiting', function() {
+       console.log('waiting')
+     }, false)
+   </script>
+</body>
+</html>
