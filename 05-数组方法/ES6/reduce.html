@@ -35,6 +35,13 @@
             return prev
         }, {})
         console.log(data1)
+        var d = [1,2,3,4]
+        var c = d.reduce(function(prev, elem) {
+          prev = prev + elem
+          console.log(prev)
+          return prev
+        }, 0)
+        console.log(c)
     </script>
 </body>
 </html>
