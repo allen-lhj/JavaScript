@@ -32,6 +32,26 @@
     // 元字符
     // \w ==== [0-9A-z_]
     // \W === [^\w]
+    var str1 = '234%abc-%&'
+    var reg5 = /[\w][\w][\w]/g // ["234", "abc"]
+    var str1 = '234%abc-%&'
+    var reg5 = /[\w][\w][\w]/g // ["234", "abc"]
+    // \d ==== [0-9]
+    // \D === [^0-9]
+    var reg6 = /\d/
+    // \s === [\r\n\t\v\f] 回车，换行，制表符，垂直换行符，换页符
+    // \S === [^\s]
+    var str1 = '234%abc-%&'
+    var reg5 = /[\w][\w][\w]/g // ["234", "abc"]
+    // \b 单词边界
+    // \B 非单词边界
+    var reg8 = /This\b/g,
+        str9 = 'This is a test' 
+    // . 可以匹配除了回车和换行的所有字符
+    var regs = /./g,
+        str0 = 'This\ris\na\ttest'
+    var reg = /\d\D/g, // 一个正则代表匹配一位
+        str = '0Gfsdad'
   </script>
 </body>
 </html>
