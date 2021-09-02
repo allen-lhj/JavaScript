@@ -22,3 +22,5 @@ function deepClone(origin, target) {
 const arr = deepClone(data, []).sort((a, b) => ((b.silence / b.online) - (a.silence / a.online)))
 // const arr2 = deepClone(data, []).sort((a, b) => ((b.fatigue / b.fatigue) - (a.fatigue / a.fatigue)))
 console.log(data === arr)
+
+console.log(JSON.parse("[['1'],['2','3']]".replaceAll('\'', '\"')))

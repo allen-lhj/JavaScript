@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 转义 -> 转换意义
+    // 转义符号   \
+    // var str = '<h1>第一行</h1>\
+    //           <h2>第二行</h2>\
+    //           <h3>第三行</h3>'
+
+    // var reg = new RegExp('Test', 'gim');// g 全局匹配， i 忽略大小写  m multi-line多行匹配
+    // str = 'This is a test. \nTest is important.';
+    // []一位字符可匹配的范围
+    var str = '0987wefjh972'
+        reg = /[1234567890][1234567890][1234567890]/g  // 
+        // 正则匹配成功了前面三个字符098，不会再重新回过头来匹配987
+
+    // 区间
+
+    var reg = /[a-z][A-Z][0-9]/g
+
+    // 表达式内部^代表非的意思
+    var reg2 = /[^0-9]/   // 第一位不是0-9
+    var reg3 = /7we|efj/g
+    var reg4 = /(7we|efj)[s]/g
+    // 元字符
+    // \w ==== [0-9A-z_]
+    // \W === [^\w]
+  </script>
+</body>
+</html>

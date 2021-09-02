@@ -1,7 +1,7 @@
 /*
  * @Autor: lhj
- * @Date: 2021-07-28 09:49:05
- * @LastEditTime: 2021-07-30 15:48:53
+ * @Date: 2020-07-28 09:49:05
+ * @LastEditTime: 2020-07-30 15:48:53
  */
 Element.prototype.dragNclick = (function(elemClick) {
   var bTime = 0,
@@ -39,8 +39,7 @@ Element.prototype.dragNclick = (function(elemClick) {
       if (eTime - bTime < 100) {
         elem.style.left = oPos[0]
         elem.style.top = oPos[1]
-        elemClick()
-        
+        elemClick()       
       }
       removeEvent(document, 'mousemove', mouseMove);
       removeEvent(document, 'mouseup', mouseUp);
