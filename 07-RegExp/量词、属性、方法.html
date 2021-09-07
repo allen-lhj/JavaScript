@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 量词
+    // n+ {1, 正无穷} 
+    var reg = /\w+/g,
+        str = 'abcdefg_';
+    // str.match(reg) // ['abcdefg_']
+
+    // 不回头：字符串从左到右，一次先匹配多，后匹配少，如果一旦匹配上不回头匹配
+    // 贪婪模式：能匹配上多个，绝不匹配少
+    // n* {0, 正无穷}
+    var reg0 = /\w*/g
+        str0 = 'abcdefg';  // ['abcdefg', ''] 前面每一个字符都能匹配上，到最后没有了，匹配一个空
+    var reg1 = /\d*/g // ['', '', '', '', '', '', '', '']每一个字符都匹配不上，
+
+    // n? {0, 1}
+    var reg2 = /\w?/g,
+        str2 = 'abcdefg'; // ['a', 'b', 'c', 'd', 'e', 'f', 'g', ''] 能匹配多个不匹配少
+    // 区间 {x, y}  {x, } x ～ 正无穷
+    var reg3 = /\w{1,2}/g,
+        str3 = 'abcdefg' // ['ab', 'cd', 'ef', 'g']
+
+    // ^n 匹配任何以n开头的字符串
+    var reg4 = /^ab\w+/g
+        str4 = 'abcdefg'
+    // n$ 匹配任何以n结尾的字符串
+
+    var reg5 = /\w+cd$/gm,
+        str5 = 'abcdefcd\nefcd'
+    
+    var str6 = 'abcd123abcd',
+        reg6 = /^abcd/g // 匹配的是以第一个adcd开头和第一个abcd结尾的字符串
+        reg7 = /^abcd[\s\S]abcd$/g
+        reg8 = /^abcd.*abcd$/g
+        // 检查字符串是否以abcd开头和以abcd结尾，并且开头结尾之间是数字
+        reg9 = /^abcd\d+abcd$/g
+        // 匹配以138开头的11位手机号码
+        reg10 = /^138[\d]{8}/g
+    // ?=n 匹配任何其后紧接着指定字符串n的字符串
+    // ?!n不是紧跟着
+    var str11 = 'abcdabcd',
+        reg11 = /a(?=b)/g; // ['a', 'a'] a后面紧跟着的是b，所以匹配出来a
+    // xxxx   xxyy
+    // 子表达式， 反向引用
+    var str12 = 'bbaaaaccaaaaiddddbaaaa',
+        reg12 = /(a)\1\1\1/g,  // \1 表示引用第几个子表达式，三个\1就是引用第一个子表达式四次 ['aaaa', 'aaaa', 'aaaa']
+        reg13 = /(\w)\1\1/g, //  ['aaa', 'aaa', 'ddd', 'aaa']
+        reg14 = /(\w)\1(\w)\2/g; //['bbaa', 'aacc', 'aaaa', 'dddd', 'aaaa']
+    
+    // 属性
+    // reg.source  正则本体
+    // reg.multiline 多行
+    // reg.global 全局
+    // reg.ugbireCase 忽略大小写
+
+    // 方法
+    // reg.test(str)
+    // reg.exec()机械式循环，index与rege的lastIndex相同
+    var stri = 'abcabcabcabc',
+        rege = /abc/g
+    // ['abc', index: 0, input: 'abcabcabcabc', groups: undefined]
+    // ['abc', index: 3, input: 'abcabcabcabc', groups: undefined]
+    // ['abc', index: 6, input: 'abcabcabcabc', groups: undefined]
+    // ['abc', index: 9, input: 'abcabcabcabc', groups: undefined]
+    // null
+  </script>
+</body>
+</html>
