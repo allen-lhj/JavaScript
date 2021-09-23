@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .search-input {
+      color: #999;
+    }
+    .search-input.has-value {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" 
+         id="content"
+         value="请输入关键字"
+         onfocus="if(this.value==='请输入关键字'){
+           this.value='';this.className='has-value'
+         }"
+         onblur="if(this.value===''){
+           this.value='请输入关键字';this.className='search-input'
+         }" />
+  <div></div>
+  <script>
+     var content = document.getElementById('content'),
+        div = document.getElementsByTagName('div')[0];
+  </script>
+</body>
+</html>
