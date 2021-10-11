@@ -9,8 +9,8 @@ var c = (a + b) * a;
 var d = 'str' + 1
 var d = 'str' + undefined
 var d = 'str' + null
-var d = 'str' + [1,2,3,4]
-var d = 'str' + {'obg':3}
+var d = 'str' + [1,2,3,4] // 'str1,2,3,4'
+var d = 'str' + {'obj':3} // 'str[object, Object]'
 // console.log(d)
 
 // 除法

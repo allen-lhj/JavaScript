@@ -6,12 +6,12 @@
 
  // 转换数字时，非数字类型都是NaN
  // 
-var a = '3.14' //number 3.14
-var a = 'a' //NaN
-var a = true //NaN
-var a = false //NaN
-var a = null //NaN
-var a = undefined //NaN
+var a = '3.14' // number 3.14
+var a = 'a' // NaN
+var a = true // NaN
+var a = false // NaN
+var a = null // NaN
+var a = undefined // NaN
 console.log(Number(a)) 
 
 
@@ -27,7 +27,7 @@ console.log(parseInt('1a23')) // 1 当遇到不是数字的后面直接舍弃
 var a = '123';
 a++;
 console.log(a) // 124;
-//是字符的则做字符串拼接
+// 是字符的则做字符串拼接
 var a = 'a' + 1;// string(1)
 console.log(a) // a1
 

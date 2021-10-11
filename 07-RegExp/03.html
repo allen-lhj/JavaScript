@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 正向预查
+    // var str = '13312312322',
+    //     reg = /[1, 2](?=2)/g
+
+    // var str1 = 'abcd{{efg}}hij{{xyz}}',
+    //     reg2 = /{{.*?}}/g;
+
+    // // replace
+    // var str2 = 'JSabcabc',
+    //     str3 = str2.replace('abc', '+')
+    var str = 'aabbccdd',
+        reg = /(\w)\1(\w)\2/g;
+    var str1 = str.replace(reg, '$2$2$1$1')
+  </script>
+</body>
+</html> 
