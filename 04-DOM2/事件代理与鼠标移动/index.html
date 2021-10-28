@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+    }
+    .box1 {
+      width: 100px;
+      height: 100px;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box1"></div>
+  </div>
+  <script src="./utils.js"></script>
+  <script>
+    // 鼠标的划入划出 mouseover mouseenter
+    var oBox = document.getElementsByClassName('box')[0],
+        oBox1 = document.getElementsByClassName('box1')[0],
+        overCount = 0,
+        outCount = 0
+    // oBox.onmouseover = function() {
+    //   this.style.backgroundColor = 'green';
+    // }
+    // oBox.onmouseout = function() {
+    //   this.style.backgroundColor = 'orange';
+    // }
+
+    // oBox1.onmouseover = function(e) {
+    //   e.stopPropagation()
+    //   this.style.backgroundColor = 'white';
+    // }
+    // oBox1.onmouseout = function(e) {
+    //   e.stopPropagation()
+    //   this.style.backgroundColor = 'black';
+    // }
+    oBox.onmouseenter = function(e) {
+      overCount++
+      console.log('overCount', + overCount)
+    }
+    oBox.onmouseleave = function(e) {
+      outCount++
+      console.log('outCount' + outCount)
+    }
+  </script>
+</body>
+</html>
