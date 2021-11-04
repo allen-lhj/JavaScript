@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="J_text">123</div>
+  <button class="J_btn">点击</button>
+  <script>
+    // 函数式编程和面向对象编程的混编语言
+    // 复杂的this  call apply bind
+    function Test() {
+      this.oBtn = document.getElementsByClassName('J_btn')[0];
+      this.oText = document.getElementsByClassName('J_text')[0];
+      this.content = '234';
+    }
+
+    Test.prototype = {
+      init: function() {
+        this.bindEvent()
+      },
+      bindEvent: function() {
+        this.oBtn.addEventListener('click', this.textChange.bind(this), false);
+      },
+      textChange: function() {
+        var content = this.content,
+            text = this.oText;
+        console.log(this)
+        text.innerHTML = content;
+      }
+    }
+    new Test().init()
+  </script>
+</body>
+</html>
