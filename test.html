@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<button class="btn">点击</button>
+<body>
+    <script type="text/javascript">
+    var btn = document.getElementsByClassName('btn')[0]
+        btn.addEventListener('click', () => {
+         for(let i = 0; i<4;i++) {
+          var a = document.createElement('a');
+             a.setAttribute('href', 'https://www.baidu.com');
+             a.setAttribute('target', '_blank');
+             a.setAttribute('id', i+'a');
+             // 防止反复添加
+             if(!document.getElementById(i+'a')) {         
+               document.body.appendChild(a);
+             }
+             a.click();
+         }
+        })
+       </script>
+</body>
+</html>
