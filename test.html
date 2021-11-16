@@ -5,24 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        html{height:100%} 
+        body{height:100%;margin:0px;padding:0px} 
+    </style>
+    <!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=khrRAZEkXUhGwu0zMp0TS9mHhu74IAW2"></script> -->
 </head>
-<button class="btn">点击</button>
 <body>
-    <script type="text/javascript">
-    var btn = document.getElementsByClassName('btn')[0]
-        btn.addEventListener('click', () => {
-         for(let i = 0; i<4;i++) {
-          var a = document.createElement('a');
-             a.setAttribute('href', 'https://www.baidu.com');
-             a.setAttribute('target', '_blank');
-             a.setAttribute('id', i+'a');
-             // 防止反复添加
-             if(!document.getElementById(i+'a')) {         
-               document.body.appendChild(a);
-             }
-             a.click();
-         }
+    <div id="container"></div>
+    <script type="module">
+        import LatLon from 'https://cdn.jsdelivr.net/npm/geodesy@2.2.1/latlon-spherical.min.js';
+        const data = [{location: [116.317316, 40.071512]}, {location: [116.317316, 40.071512]}, {location: [116.317316, 40.071512]}]
+        let mapdata = []
+        const a = new LatLon(40.071512, 116.317316)
+        const b = a.destinationPoint(5, 30)
+        console.log(b)
+        console.log(a)
+        data.forEach((item, index) => {
+            let p1 = new LatLon(item.location[0], item.location[1])
+            let p2 = p1.destinationPoint(5, (index * 30))
+            console.log(p1)
+            // console.log(p2)
+            mapdata.push(p2)
         })
-       </script>
+        // var map = new BMapGL.Map("container")
+        // var point = new BMapGL.Point(116.317316, 40.071512)
+        // map.centerAndZoom(point, 15)
+    </script>
+
+    <script>
+        
+    </script>
 </body>
 </html>
