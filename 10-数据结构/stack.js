@@ -4,7 +4,6 @@
  * 栈常被用在编程语言的编译器和内存中保存变量、方法调用等，也被用于浏览器历史记录。
  * */
 
-const { truncate } = require("fs");
 
 class Stack {
     constructor() {
@@ -72,7 +71,6 @@ function decimalToBinary(decNumber) {
     }
 
     while (! remStack.isEmpty()) {
-        console.log(remStack)
         binaryString += remStack.pop().toString();
     }
     return binaryString;
