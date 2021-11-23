@@ -16,7 +16,7 @@ class Node {
     }
 }
 
-function defaultEquals(a, b) {
+function equalsFn(a, b) {
     return a === b;
 }
 
@@ -33,6 +33,8 @@ class LinkedList {
       if (this.head == null) {
           this.head = node;
       } else {
+        // 将head给current，找到current为null的，如果不是null就将下一个往前移，
+        // 将最后一个为空的next赋值为node
           current = this.head;
           while(current.next != null) {
               current = current.next;
@@ -43,6 +45,27 @@ class LinkedList {
       this.count++;
     }
     // 1.从特定位置移除一个元素
+    // removeAt(index) {
+    //     if (index >= 0 && index < this.count) {
+    //         let current = this.head;
+    //         // 移除第一项
+    //         if (index === 0) {
+    //             this.head = current.next;
+    //         } else {
+    //             // 移除最后一个或中间某一个，迭代链表，让current始终为链表循环中的当前元素
+    //             let previous;
+    //             for (let i = 0; i < index; i++) {
+    //                 previous = current;
+    //                 current = current.next;
+    //             }
+    //             // 将previous与current的下一项链接起来，跳过current，从而移除它
+    //             previous.next = current.next;
+    //         }
+    //         this.count--;
+    //         return current.element;
+    //     }
+    //     return undefined;
+    // }
     removeAt(index) {
         if (index >= 0 && index < this.count) {
             let current = this.head;
@@ -50,13 +73,8 @@ class LinkedList {
             if (index === 0) {
                 this.head = current.next;
             } else {
-                // 移除最后一个或中间某一个，迭代链表，让current始终为链表循环中的当前元素
-                let previous;
-                for (let i = 0; i < index; i++) {
-                    previous = current;
-                    current = current.next;
-                }
-                // 将previous与current的下一项链接起来，跳过current，从而移除它
+                const previous = this.getElementAt(index - 1);
+                current = previous.next;
                 previous.next = current.next;
             }
             this.count--;
@@ -64,10 +82,142 @@ class LinkedList {
         }
         return undefined;
     }
+    getElementAt(index) {
+        if (index >= 0 && index <= this.count) {
+            let node = this.head;
+            for (let i = 0; i < index && node != null; i++) {
+                node = node.next;
+            }
+            return node;
+        }
+        return undefined;
+    }
+    // 在任意位置插入元素
+    insert(element, index) {
+        // 索引需要大于等于0，并且不能超过链表长度
+        if (index >= 0 && index <= this.count) {
+            const node = new Node(element);
+            if (index === 0) {// 在第一个位置添加
+                const current = this.head;
+                node.next = current;
+                this.head = node;
+            } else {
+                const previous = this.getElementAt(index - 1);
+                const current = previous.next;
+                node.next = current;
+                previous.next = node;
+            }
+            this.count++;
+            return true;
+        }
+        return false;
+    }
+    indexOf (element) {
+      let current = this.head;
+      for (var i = 0; i < this.count && this.count != null; i++) {
+        if (this.equalsFn(element, current.element)) {
+        return i;
+        }
+        current = current.next;
+      }
+      return -1;
+    }
+    remove(element) {
+			const index = this.indexOf(element);
+			return this.removeAt(index);
+    }
+		size() {
+			return this.count;
+		}
+		isEmpty() {
+			return this.size() === 0;
+		}
+		getHead() {
+			return this.head;
+		}
+		toString() {
+			if (this.head == null) {
+				return '';
+			}
+			let objString = `${this.head.element}`;
+			let current = this.head.next;
+			for (let i = 1; i < this.size() && current != nulll; i++) {
+				objString = `${objString}, ${current.element}`;
+				current = current.next;
+			}
+			return objString;
+		}
 }
-const list = new LinkedList()
-list.push(5)
-list.push(20)
-console.log(list)
-list.removeAt(1)
-console.log(list)
+
+// DoublyNode 
+
+class DoublyNode extends Node {
+	constructor(element, next, prev) {
+		super(element, next);
+		this.prev = prev;
+	}
+}
+
+class DoublyLinkeList extends LinkedList {
+	constructor(equalsFn) {
+		super(equalsFn);
+		this.tail = undefined;
+	}
+	insert(element, index) {
+		if (index >= 0 && index <= this.count) {
+			const node = new DoublyNode(element);
+			let current = this.head;
+			// 在起点插入
+			if (index === 0) {
+				if (this.head == null) {
+					this.head = node;
+					this.tail = node;
+				} else {
+					current.next = this.head;
+					current.prev = node;
+					this.head = node;
+				}
+ 			} else if (index === this.count) {
+				 current = this.tail;
+				 current.next = node;
+				 node.prev = current;
+				 this.tail = node;
+			 } else {
+				const previous = this.getElementAt(index-1);
+				current = previous.next;
+				node.next = current;
+				previous.next = node;
+				current.prev = node;
+				node.prev = previous;
+			 }
+			 this.count++;
+			 return true;
+		}
+		return false;
+	}
+	removeAt(index) {
+		if (index >= 0 && index < this.count) {
+			let current = this.head;
+			if (index === 0) {
+				this.head = current.next;
+				if (this.count === 1) {
+					this.tail = undefined;
+				} else {
+					this.head.prev = undefined;
+				}
+			} else if (index === this.count - 1) {
+				current = this.tail;
+				this.tail = current.prev;
+				this.tail.next = undefined;
+			} else {
+				current = this.getElementAt(index);
+				const previous = current.prev;
+				previous.next = current.next;
+				current.next.prev = previous;
+			}
+			this.count--;
+			return current.element;
+		}
+		return undefined;
+	}
+}
